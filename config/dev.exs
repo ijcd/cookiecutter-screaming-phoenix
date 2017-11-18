@@ -1,12 +1,16 @@
 use Mix.Config
 
+# General application configuration
+config :cookiecutter_screaming_phoenix,
+  include_debug_routes: :true
+
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with brunch.io to recompile .js and .css sources.
-config :cookiecutter_screaming_phoenix, CookiecutterScreamingPhoenixWeb.Endpoint,
+config :cookiecutter_screaming_phoenix, CookiecutterScreamingPhoenix.Web.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
@@ -31,7 +35,7 @@ config :cookiecutter_screaming_phoenix, CookiecutterScreamingPhoenixWeb.Endpoint
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :cookiecutter_screaming_phoenix, CookiecutterScreamingPhoenixWeb.Endpoint,
+config :cookiecutter_screaming_phoenix, CookiecutterScreamingPhoenix.Web.Endpoint,
   live_reload: [
     patterns: [
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},

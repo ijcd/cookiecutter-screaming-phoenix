@@ -1,4 +1,4 @@
-defmodule CookiecutterScreamingPhoenixWeb.ErrorHelpers do
+defmodule CookiecutterScreamingPhoenix.Web.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """
@@ -32,9 +32,9 @@ defmodule CookiecutterScreamingPhoenixWeb.ErrorHelpers do
     #     dgettext "errors", "is invalid"
     #
     if count = opts[:count] do
-      Gettext.dngettext(CookiecutterScreamingPhoenixWeb.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(CookiecutterScreamingPhoenix.Web.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(CookiecutterScreamingPhoenixWeb.Gettext, "errors", msg, opts)
+      Gettext.dgettext(CookiecutterScreamingPhoenix.Web.Gettext, "errors", msg, opts)
     end
   end
 end

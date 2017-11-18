@@ -1,4 +1,4 @@
-defmodule CookiecutterScreamingPhoenixWeb.ChannelCase do
+defmodule CookiecutterScreamingPhoenix.Web.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -21,7 +21,7 @@ defmodule CookiecutterScreamingPhoenixWeb.ChannelCase do
       use Phoenix.ChannelTest
 
       # The default endpoint for testing
-      @endpoint CookiecutterScreamingPhoenixWeb.Endpoint
+      @endpoint CookiecutterScreamingPhoenix.Web.Endpoint
     end
   end
 

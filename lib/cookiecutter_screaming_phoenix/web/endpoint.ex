@@ -1,7 +1,7 @@
-defmodule CookiecutterScreamingPhoenixWeb.Endpoint do
+defmodule CookiecutterScreamingPhoenix.Web.Endpoint do
   use Phoenix.Endpoint, otp_app: :cookiecutter_screaming_phoenix
 
-  socket "/socket", CookiecutterScreamingPhoenixWeb.UserSocket
+  socket "/socket", CookiecutterScreamingPhoenix.Web.UserSocket
 
   # Serve at "/" the static files from "priv/static" directory.
   #
@@ -38,7 +38,7 @@ defmodule CookiecutterScreamingPhoenixWeb.Endpoint do
     key: "_cookiecutter_screaming_phoenix_key",
     signing_salt: "KvLJvYTk"
 
-  plug CookiecutterScreamingPhoenixWeb.Router
+  plug CookiecutterScreamingPhoenix.Web.Router
 
   @doc """
   Callback invoked for dynamically configuring the endpoint.

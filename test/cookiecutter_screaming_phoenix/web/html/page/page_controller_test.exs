@@ -1,5 +1,5 @@
-defmodule CookiecutterScreamingPhoenixWeb.PageControllerTest do
-  use CookiecutterScreamingPhoenixWeb.ConnCase
+defmodule CookiecutterScreamingPhoenix.Web.HTML.PageControllerTest do
+  use CookiecutterScreamingPhoenix.Web.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get conn, "/"

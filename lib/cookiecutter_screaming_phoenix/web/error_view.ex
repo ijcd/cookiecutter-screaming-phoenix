@@ -1,5 +1,5 @@
-defmodule CookiecutterScreamingPhoenixWeb.ErrorView do
-  use CookiecutterScreamingPhoenixWeb, :view
+defmodule CookiecutterScreamingPhoenix.Web.ErrorView do
+  use CookiecutterScreamingPhoenix.Web, :view
 
   def render("404.html", _assigns) do
     "Page not found"

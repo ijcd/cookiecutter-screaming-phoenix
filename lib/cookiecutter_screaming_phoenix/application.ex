@@ -11,7 +11,7 @@ defmodule CookiecutterScreamingPhoenix.Application do
       # Start the Ecto repository
       supervisor(CookiecutterScreamingPhoenix.Repo, []),
       # Start the endpoint when the application starts
-      supervisor(CookiecutterScreamingPhoenixWeb.Endpoint, []),
+      supervisor(CookiecutterScreamingPhoenix.Web.Endpoint, []),
       # Start your own worker by calling: CookiecutterScreamingPhoenix.Worker.start_link(arg1, arg2, arg3)
       # worker(CookiecutterScreamingPhoenix.Worker, [arg1, arg2, arg3]),
     ]
@@ -25,7 +25,7 @@ defmodule CookiecutterScreamingPhoenix.Application do
   # Tell Phoenix to update the endpoint configuration
   # whenever the application is updated.
   def config_change(changed, _new, removed) do
-    CookiecutterScreamingPhoenixWeb.Endpoint.config_change(changed, removed)
+    CookiecutterScreamingPhoenix.Web.Endpoint.config_change(changed, removed)
     :ok
   end
 end

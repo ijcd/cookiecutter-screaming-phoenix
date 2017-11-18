@@ -1,12 +1,12 @@
-defmodule CookiecutterScreamingPhoenixWeb do
+defmodule CookiecutterScreamingPhoenix.Web do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use CookiecutterScreamingPhoenixWeb, :controller
-      use CookiecutterScreamingPhoenixWeb, :view
+      use CookiecutterScreamingPhoenix.Web, :controller
+      use CookiecutterScreamingPhoenix.Web, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,17 +19,17 @@ defmodule CookiecutterScreamingPhoenixWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: CookiecutterScreamingPhoenixWeb
+      use Phoenix.Controller, namespace: CookiecutterScreamingPhoenix.Web.HTML
       import Plug.Conn
-      import CookiecutterScreamingPhoenixWeb.Router.Helpers
-      import CookiecutterScreamingPhoenixWeb.Gettext
+      import CookiecutterScreamingPhoenix.Web.Router.Helpers
+      import CookiecutterScreamingPhoenix.Web.Gettext
     end
   end
 
-  def view do
+  def view(opts \\ []) do
     quote do
-      use Phoenix.View, root: "lib/cookiecutter_screaming_phoenix_web/templates",
-                        namespace: CookiecutterScreamingPhoenixWeb
+      use Phoenix.View, root: Keyword.get(unquote(opts), :root, "lib/cookiecutter_screaming_phoenix/web/html"),
+                        namespace: CookiecutterScreamingPhoenix.Web.HTML
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 2, view_module: 1]
@@ -37,9 +37,9 @@ defmodule CookiecutterScreamingPhoenixWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import CookiecutterScreamingPhoenixWeb.Router.Helpers
-      import CookiecutterScreamingPhoenixWeb.ErrorHelpers
-      import CookiecutterScreamingPhoenixWeb.Gettext
+      import CookiecutterScreamingPhoenix.Web.Router.Helpers
+      import CookiecutterScreamingPhoenix.Web.ErrorHelpers
+      import CookiecutterScreamingPhoenix.Web.Gettext
     end
   end
 
@@ -54,7 +54,7 @@ defmodule CookiecutterScreamingPhoenixWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import CookiecutterScreamingPhoenixWeb.Gettext
+      import CookiecutterScreamingPhoenix.Web.Gettext
     end
   end
 
@@ -63,5 +63,9 @@ defmodule CookiecutterScreamingPhoenixWeb do
   """
   defmacro __using__(which) when is_atom(which) do
     apply(__MODULE__, which, [])
+  end
+
+  defmacro __using__({which, opts}) when is_atom(which) do
+    apply(__MODULE__, which, [opts])
   end
 end
