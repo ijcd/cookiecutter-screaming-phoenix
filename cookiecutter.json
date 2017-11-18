@@ -1,0 +1,8 @@
+{
+    "maintainer_name": "My Name",
+    "repo_url": "https://github.com/myname/my_phoenix_project",
+    "project_name": "My Project",
+    "project_module": "MyPhoenixProject",
+    "project_underscored": "my_phoenix_project",
+    "project_description": "Phoenix application utilizing a screaming architecture"
+}
