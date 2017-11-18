@@ -3,7 +3,7 @@ defmodule CookiecutterScreamingPhoenix.Mixfile do
 
   @version "0.0.1"
   @source_url "https://github.com/ijcd/cookiecutter_screaming_phoenix"
-  @description "Phoenix application utilizing a screaming architecture ala Uncle Bob Martin."
+  @description "Phoenix application utilizing a screaming architecture à la Uncle Bob Martin."
 
   def project do
     [
