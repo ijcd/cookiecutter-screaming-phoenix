@@ -46,7 +46,7 @@ defmodule {{cookiecutter.project_module}}.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {{{cookiecutter.project_module}}.Application, []},
+      mod: { {{cookiecutter.project_module}}.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end
