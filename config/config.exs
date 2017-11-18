@@ -5,6 +5,8 @@
 # is restricted to this project.
 use Mix.Config
 
+raise "Open config/configs.exs, remove this message, and replace secret_key_base using `mix phoenix.gen.secret`"
+
 # General application configuration
 config :cookiecutter_screaming_phoenix,
   ecto_repos: [CookiecutterScreamingPhoenix.Repo]
