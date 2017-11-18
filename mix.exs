@@ -1,16 +1,43 @@
 defmodule CookiecutterScreamingPhoenix.Mixfile do
   use Mix.Project
 
+  @version "0.0.1"
+  @source_url "https://github.com/ijcd/cookiecutter_screaming_phoenix"
+  @description "Phoenix application utilizing a screaming architecture ala Uncle Bob Martin."
+
   def project do
     [
       app: :cookiecutter_screaming_phoenix,
-      version: "0.0.1",
-      elixir: "~> 1.4",
+      version: @version,
+      elixir: "~> 1.5",
       elixirc_paths: elixirc_paths(Mix.env),
       compilers: [:phoenix, :gettext] ++ Mix.compilers,
       start_permanent: Mix.env == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+
+      # docs
+      description: @description,
+      name: "Cookiecutter Screaming Phoenix",
+      source_url: @source_url,
+      dialyzer: [flags: "--fullpath"],
+
+      package: [
+        description: @description,
+        files: ["lib", "config", "mix.exs", "README*"],
+        maintainers: ["Ian Duggan"],
+        licenses: ["Apache 2.0"],
+        links: %{GitHub: @source_url}
+      ],
+
+      docs: [
+        main: "readme",
+        source_ref: "v#{@version}",
+        source_url: @source_url,
+        extras: [
+          "README.md"
+        ]
+      ]      
     ]
   end
 
@@ -40,7 +67,17 @@ defmodule CookiecutterScreamingPhoenix.Mixfile do
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
-      {:cowboy, "~> 1.0"}
+      {:cowboy, "~> 1.0"},
+
+      # docs
+      {:ex_doc, "~> 0.16.4", only: :dev, runtime: false},
+      {:earmark, "~> 1.2", only: :dev, runtime: false},
+      
+      # dev / test
+      {:mix_test_watch, "~> 0.3", only: [:dev, :test], runtime: false},
+      {:credo, "~> 0.8.5", only: [:dev, :test], runtime: false},
+      {:dialyxir, "~> 0.5", only: [:dev, :test], runtime: false},
+      {:stream_data, "~> 0.2.0", only: [:dev, :test], runtime: false},
     ]
   end
 

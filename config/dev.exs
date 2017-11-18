@@ -56,3 +56,10 @@ config :cookiecutter_screaming_phoenix, CookiecutterScreamingPhoenix.Repo,
   database: "cookiecutter_screaming_phoenix_dev",
   hostname: "localhost",
   pool_size: 10
+
+config :mix_test_watch,
+  tasks: [
+    "test",
+    # "dialyzer",
+    # "credo",
+  ]
