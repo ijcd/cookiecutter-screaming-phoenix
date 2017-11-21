@@ -2,15 +2,15 @@ exports.config = {
   // See http://brunch.io/#documentation for docs.
   files: {
     javascripts: {
-      joinTo: "js/app.js"
+      // joinTo: "js/app.js"
 
       // To use a separate vendor.js bundle, specify two files path
       // http://brunch.io/docs/config#-files-
-      // joinTo: {
-      //   "js/app.js": /^js/,
-      //   "js/vendor.js": /^(?!js)/
-      // }
-      //
+      joinTo: {
+        "js/app.js": /^js/,
+        "js/vendor.js": /^(?!js)/
+      }
+
       // To change the order of concatenation of files, explicitly mention here
       // order: {
       //   before: [
@@ -20,7 +20,11 @@ exports.config = {
       // }
     },
     stylesheets: {
-      joinTo: "css/app.css"
+      // joinTo: "css/app.css"
+      joinTo: {
+        "css/app.css": /^css/,
+        "css/vendor.css": /^(?!css)/
+      }
     },
     templates: {
       joinTo: "js/app.js"
@@ -47,6 +51,11 @@ exports.config = {
     babel: {
       // Do not use ES6 compiler in vendor code
       ignore: [/vendor/]
+    },
+    sass: {
+      options: {
+        includePaths: ["node_modules"]
+      }
     }
   },
 
@@ -57,6 +66,15 @@ exports.config = {
   },
 
   npm: {
-    enabled: true
+    enabled: true,
+    globals: {
+      $: "jquery",
+      jQuery: "jquery",
+      uikit: "uikit",
+      icons: "uikit/dist/js/uikit-icons",
+    },
+    styles: {
+      unpoly: ["dist/unpoly.css"]
+    }
   }
 };
